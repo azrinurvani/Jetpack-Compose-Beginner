@@ -2,7 +2,7 @@ package com.azrinurvani.jetpackcomposeforbeginner.domain.model
 
 sealed class RoverManifestUiState{
     data class Success(
-        val roverManifestUiModel: List<RoverManifestUiModel>
+        val roverManifestUiModelList: List<RoverManifestUiModel>
 
     ) : RoverManifestUiState()
     object Loading : RoverManifestUiState()
