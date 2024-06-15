@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+<!--    TODO 4 - Add permission and use .BaseApplication in attribute name at TAG <application/> -->
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application

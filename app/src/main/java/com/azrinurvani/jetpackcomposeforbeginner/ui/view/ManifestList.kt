@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.azrinurvani.jetpackcomposeforbeginner.R
 import com.azrinurvani.jetpackcomposeforbeginner.domain.model.RoverManifestUiModel
 
+//TODO 18 - Create UI for Card from ManifestList
 @Composable
 fun ManifestList(
     roverManifestUiModelList: List<RoverManifestUiModel>

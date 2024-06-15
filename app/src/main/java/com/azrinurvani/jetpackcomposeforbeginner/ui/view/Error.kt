@@ -12,6 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.azrinurvani.jetpackcomposeforbeginner.R
 
 
+//TODO 16 - Create UI for Error and Loading State
 @Preview(showBackground = true)
 @Composable
 fun ErrorPreview(){

@@ -2,6 +2,7 @@ package com.azrinurvani.jetpackcomposeforbeginner.service.model
 
 import com.google.gson.annotations.SerializedName
 
+//TODO 6 - Create DTO from PhotoManifest from Response API
 data class ManifestPhotoRemoteModel(
     val cameras : List<String>,
 

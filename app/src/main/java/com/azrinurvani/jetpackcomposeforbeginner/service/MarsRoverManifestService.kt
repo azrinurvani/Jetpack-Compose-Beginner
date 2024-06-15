@@ -8,6 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 
+//TODO 7 - Create Interface for MarsRoverManifestService
 interface MarsRoverManifestService {
 
     @GET("mars-photos/api/v1/manifests/{rover_name}?api_key=UgAlcmMlBdQwPZTNWz1X4eRYajYeFV16zgYTMBPm")

@@ -23,6 +23,7 @@ import com.azrinurvani.jetpackcomposeforbeginner.R
 import com.azrinurvani.jetpackcomposeforbeginner.domain.model.roverUiModelList
 
 
+//TODO 17 - Create UI for Card from RoverList
 @Composable
 fun RoverList(
     onClick: (roverName:String) -> Unit

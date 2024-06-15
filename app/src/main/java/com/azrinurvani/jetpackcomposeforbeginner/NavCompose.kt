@@ -15,6 +15,8 @@ import com.azrinurvani.jetpackcomposeforbeginner.ui.theme.JetpackComposeForBegin
 import com.azrinurvani.jetpackcomposeforbeginner.ui.view.ManifestScreen
 import com.azrinurvani.jetpackcomposeforbeginner.ui.view.RoverList
 
+//TODO 20 - Create function for Navigation Compose with implement All Screen using Navigation Compose
+// such as RoverList and ManifestScreen
 @Composable
 fun NavCompose(){
     val navController = rememberNavController() // too call navController

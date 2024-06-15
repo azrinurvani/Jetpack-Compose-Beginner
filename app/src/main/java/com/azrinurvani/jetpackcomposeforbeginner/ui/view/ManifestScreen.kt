@@ -7,6 +7,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.azrinurvani.jetpackcomposeforbeginner.domain.model.RoverManifestUiState
 import com.azrinurvani.jetpackcomposeforbeginner.ui.manifestlist.MarsRoverManifestViewModel
 
+//TODO 19 - Implement MarsRoverManifestViewModel and ManifestList
 @Composable
 fun ManifestScreen(
     roverName:String?,

@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+//TODO 13 - Create ViewModel to handling transfer/carry data from data layer to presentation (UI) layer
 @HiltViewModel
 class MarsRoverManifestViewModel @Inject constructor(
     private val manifestRepo: MarsRoverManifestRepo
