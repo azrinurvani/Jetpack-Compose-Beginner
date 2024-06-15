@@ -3,6 +3,7 @@ package com.azrinurvani.jetpackcomposeforbeginner.di
 import android.util.Log
 import com.azrinurvani.jetpackcomposeforbeginner.BuildConfig
 import com.azrinurvani.jetpackcomposeforbeginner.service.MarsRoverManifestService
+import com.azrinurvani.jetpackcomposeforbeginner.service.MarsRoverPhotoService
 import com.azrinurvani.jetpackcomposeforbeginner.util.Constants
 import dagger.Module
 import dagger.Provides
@@ -52,5 +53,11 @@ object AppModule {
     @Provides
     fun providesMarsHoverManifestService(retrofit: Retrofit) : MarsRoverManifestService{
         return retrofit.create(MarsRoverManifestService::class.java)
+    }
+
+    //TODO 33 -  Add dependencies to provide MarsRoverPhotoService class
+    @Provides
+    fun providesMarsRoverPhotoService(retrofit: Retrofit) : MarsRoverPhotoService{
+        return retrofit.create(MarsRoverPhotoService::class.java)
     }
 }

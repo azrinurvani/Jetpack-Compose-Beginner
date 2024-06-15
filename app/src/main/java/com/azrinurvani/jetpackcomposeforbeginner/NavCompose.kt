@@ -10,9 +10,12 @@ import com.azrinurvani.jetpackcomposeforbeginner.nav.Action
 
 import com.azrinurvani.jetpackcomposeforbeginner.nav.Destinations.HOME
 import com.azrinurvani.jetpackcomposeforbeginner.nav.Destinations.MANIFEST
+import com.azrinurvani.jetpackcomposeforbeginner.nav.Destinations.PHOTO
 import com.azrinurvani.jetpackcomposeforbeginner.ui.manifestlist.MarsRoverManifestViewModel
+import com.azrinurvani.jetpackcomposeforbeginner.ui.photolist.MarsRoverPhotoViewModel
 import com.azrinurvani.jetpackcomposeforbeginner.ui.theme.JetpackComposeForBeginnerTheme
 import com.azrinurvani.jetpackcomposeforbeginner.ui.view.ManifestScreen
+import com.azrinurvani.jetpackcomposeforbeginner.ui.view.PhotoScreen
 import com.azrinurvani.jetpackcomposeforbeginner.ui.view.RoverList
 
 //TODO 20 - Create function for Navigation Compose with implement All Screen using Navigation Compose
@@ -35,7 +38,19 @@ fun NavCompose(){
                 ManifestScreen(
                     //params
                     roverName = backStageEntry.arguments?.getString("roverName").toString(),
-                    marsRoverManifestViewModel = hiltViewModel<MarsRoverManifestViewModel>()
+                    marsRoverManifestViewModel = hiltViewModel<MarsRoverManifestViewModel>(),
+                    //TODO 26 - Add actions navigate to PhotoScreen as params
+                    onClick = { roverName, sol ->
+                        actions.photo(roverName,sol)
+                    }
+                )
+            }
+            //TODO 27 - Add composable for PhotoScreen
+            composable(PHOTO){ backStageEntry ->
+                PhotoScreen(
+                    roverName = backStageEntry.arguments?.getString("roverName").toString(),
+                    sol = backStageEntry.arguments?.getString("sol").toString(),
+                    marsRoverPhotoViewModel = hiltViewModel<MarsRoverPhotoViewModel>()
                 )
             }
         }

@@ -11,7 +11,9 @@ import com.azrinurvani.jetpackcomposeforbeginner.ui.manifestlist.MarsRoverManife
 @Composable
 fun ManifestScreen(
     roverName:String?,
-    marsRoverManifestViewModel : MarsRoverManifestViewModel
+    //TODO 24 - Modify Params with add new params called roverName and onCLick (Unit Function)
+    marsRoverManifestViewModel : MarsRoverManifestViewModel,
+    onClick : (roverName:String,sol:String) -> Unit
 ){
     val viewState by marsRoverManifestViewModel.roverManifestUiState.collectAsStateWithLifecycle()
 
@@ -23,7 +25,9 @@ fun ManifestScreen(
           RoverManifestUiState.Error -> Error()
           RoverManifestUiState.Loading -> Loading()
           is RoverManifestUiState.Success -> ManifestList(
-              roverManifestUiModelList = roverManifestUiState.roverManifestUiModelList
+              roverManifestUiModelList = roverManifestUiState.roverManifestUiModelList,
+              roverName = roverName,
+              onClick = onClick
           )
         }
     }

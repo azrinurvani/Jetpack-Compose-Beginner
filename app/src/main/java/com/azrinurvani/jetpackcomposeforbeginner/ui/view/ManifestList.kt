@@ -21,7 +21,10 @@ import com.azrinurvani.jetpackcomposeforbeginner.domain.model.RoverManifestUiMod
 //TODO 18 - Create UI for Card from ManifestList
 @Composable
 fun ManifestList(
-    roverManifestUiModelList: List<RoverManifestUiModel>
+    //TODO 24 - Modify Params with add new params called roverName and onCLick (Unit Function)
+    roverManifestUiModelList: List<RoverManifestUiModel>,
+    roverName:String,
+    onClick : (roverName:String,sol:String) -> Unit
 ){
     Surface(
         color = MaterialTheme.colorScheme.background,
@@ -31,7 +34,12 @@ fun ManifestList(
             items(
                 count = roverManifestUiModelList.size,
                 itemContent = { index ->
-                    Manifest(roverManifestUiModel = roverManifestUiModelList[index])
+                    //TODO 24 - Modify Params with add new params called roverName and onCLick (Unit Function)
+                    Manifest(
+                        roverManifestUiModel = roverManifestUiModelList[index],
+                        roverName,
+                        onClick
+                    )
                 }
             )
         }
@@ -40,13 +48,19 @@ fun ManifestList(
 
 @Composable
 fun Manifest(
+    //TODO 24 - Modify Params with add new params called roverName and onCLick (Unit Function)
     roverManifestUiModel: RoverManifestUiModel,
+    roverName:String,
+    onClick : (roverName:String,sol:String) -> Unit
 ){
     Card(
         modifier = Modifier
             .padding(16.dp)
             .fillMaxWidth()
-            .clickable { }
+            .clickable {
+                //TODO 25 - Pass value onClick params here
+                onClick(roverName,roverManifestUiModel.sol)
+            }
     ) {
         Column(
             modifier = Modifier.padding(16.dp)
@@ -61,9 +75,13 @@ fun Manifest(
 @Preview(showBackground = true)
 @Composable
 fun ManifestPreview(){
-    Manifest(roverManifestUiModel = RoverManifestUiModel(
-        sol = "4",
-        earthDate = "2024-06-09",
-        photoNumber = "20"
-    ))
+    Manifest(
+        roverManifestUiModel = RoverManifestUiModel(
+            sol = "4",
+            earthDate = "2024-06-09",
+            photoNumber = "20"
+        ),
+        roverName = "",
+        onClick = { _ ,_ -> }
+    )
 }
