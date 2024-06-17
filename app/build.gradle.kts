@@ -90,6 +90,9 @@ dependencies {
     //Lifecycle Runtime
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.compose)
+
+    //Coil
+    implementation(libs.coil.compose)
 }
 kapt{
     correctErrorTypes = true
