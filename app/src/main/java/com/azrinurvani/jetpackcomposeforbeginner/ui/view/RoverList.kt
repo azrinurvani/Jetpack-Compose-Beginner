@@ -26,11 +26,13 @@ import com.azrinurvani.jetpackcomposeforbeginner.domain.model.roverUiModelList
 //TODO 17 - Create UI for Card from RoverList
 @Composable
 fun RoverList(
+    //TODO 46 - Create modifier for All Page (to handle stuck when scroll to bottom)
+    modifier: Modifier,
     onClick: (roverName:String) -> Unit
 ){
     Surface(
         color = MaterialTheme.colorScheme.background,
-        modifier = Modifier.fillMaxSize()
+        modifier = modifier.fillMaxSize()
     ) {
         LazyColumn {
             items(count = roverUiModelList.size, itemContent = { index->

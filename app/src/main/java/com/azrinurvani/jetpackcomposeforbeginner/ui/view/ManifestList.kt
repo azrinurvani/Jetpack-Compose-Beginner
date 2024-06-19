@@ -21,6 +21,8 @@ import com.azrinurvani.jetpackcomposeforbeginner.domain.model.RoverManifestUiMod
 //TODO 18 - Create UI for Card from ManifestList
 @Composable
 fun ManifestList(
+    //TODO 46 - Create modifier for All Page (to handle stuck when scroll to bottom)
+    modifier: Modifier,
     //TODO 24 - Modify Params with add new params called roverName and onCLick (Unit Function)
     roverManifestUiModelList: List<RoverManifestUiModel>,
     roverName:String,
@@ -28,7 +30,8 @@ fun ManifestList(
 ){
     Surface(
         color = MaterialTheme.colorScheme.background,
-        modifier = Modifier.fillMaxSize()
+        //TODO 46 - Create modifier for All Page (to handle stuck when scroll to bottom)
+        modifier = modifier.fillMaxSize()
     ) {
         LazyColumn {
             items(

@@ -22,12 +22,14 @@ import com.azrinurvani.jetpackcomposeforbeginner.domain.model.RoverPhotoUiModel
 //TODO 38 - Create PhotoList UI
 @Composable
 fun PhotoList(
+    //TODO 46 - Create modifier for All Page (to handle stuck when scroll to bottom)
+    modifier: Modifier,
     roverPhotoUiModelList: List<RoverPhotoUiModel>
 ) {
 
     Surface(
         color = MaterialTheme.colorScheme.background,
-        modifier = Modifier.fillMaxSize()
+        modifier = modifier.fillMaxSize()
     ) {
         LazyColumn {
             items(
