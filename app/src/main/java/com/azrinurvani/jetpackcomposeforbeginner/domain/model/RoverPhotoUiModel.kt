@@ -15,5 +15,7 @@ data class RoverPhotoUiModel(
     val imgSrc : String,
     val sol : String,
     val earthDate : String,
-    val cameraFullName : String
+    val cameraFullName : String,
+    //TODO 52 - Add field isSaved for condition data has been saved or not
+    val isSaved : Boolean
 )

@@ -38,7 +38,9 @@ fun PhotoScreen(
                 PhotoList(
                     modifier = modifier,
                     roverPhotoUiModelList = roverPhotoUiState.roverPhotoUiModelList
-                )
+                ){ roverPhotoUiModel -> //TODO 59 - Add action to call changeSaveStatus when photo list is clicked
+                    marsRoverPhotoViewModel.changeSaveStatus(roverPhotoUiModel)
+                }
             }
         }
     }

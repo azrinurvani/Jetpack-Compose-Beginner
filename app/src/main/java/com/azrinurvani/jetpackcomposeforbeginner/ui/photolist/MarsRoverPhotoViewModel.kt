@@ -3,8 +3,10 @@ package com.azrinurvani.jetpackcomposeforbeginner.ui.photolist
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.azrinurvani.jetpackcomposeforbeginner.data.MarsRoverPhotoRepo
+import com.azrinurvani.jetpackcomposeforbeginner.domain.model.RoverPhotoUiModel
 import com.azrinurvani.jetpackcomposeforbeginner.domain.model.RoverPhotoUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -26,6 +28,18 @@ class MarsRoverPhotoViewModel @Inject constructor(
             _roverPhotoUiState.value = RoverPhotoUiState.Loading
             marsRoverPhotoRepo.getMarsRoverPhoto(roverName,sol).collect{
                 _roverPhotoUiState.value = it
+            }
+        }
+    }
+
+    //TODO 54 - Create new function to change status save
+    //If data has been saved, the old data will be removed and if data not saved before, the data will be added
+    fun changeSaveStatus(roverPhotoUiModel: RoverPhotoUiModel){
+        viewModelScope.launch(Dispatchers.IO) {
+            if (roverPhotoUiModel.isSaved) {
+                marsRoverPhotoRepo.removePhoto(roverPhotoUiModel = roverPhotoUiModel)
+            }else{
+                marsRoverPhotoRepo.savePhoto(roverPhotoUiModel = roverPhotoUiModel)
             }
         }
     }

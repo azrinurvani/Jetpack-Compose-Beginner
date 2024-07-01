@@ -93,6 +93,11 @@ dependencies {
 
     //Coil
     implementation(libs.coil.compose)
+
+    //Room
+    implementation(libs.room.ktx)
+    kapt(libs.androidx.room.compiler)
+
 }
 kapt{
     correctErrorTypes = true

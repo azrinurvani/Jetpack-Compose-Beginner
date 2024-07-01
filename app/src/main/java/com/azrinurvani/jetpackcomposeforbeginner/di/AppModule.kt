@@ -1,13 +1,17 @@
 package com.azrinurvani.jetpackcomposeforbeginner.di
 
+import android.content.Context
 import android.util.Log
 import com.azrinurvani.jetpackcomposeforbeginner.BuildConfig
+import com.azrinurvani.jetpackcomposeforbeginner.db.MarsRoverSavedDatabase
+import com.azrinurvani.jetpackcomposeforbeginner.db.MarsRoverSavedPhotoDao
 import com.azrinurvani.jetpackcomposeforbeginner.service.MarsRoverManifestService
 import com.azrinurvani.jetpackcomposeforbeginner.service.MarsRoverPhotoService
 import com.azrinurvani.jetpackcomposeforbeginner.util.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -59,5 +63,11 @@ object AppModule {
     @Provides
     fun providesMarsRoverPhotoService(retrofit: Retrofit) : MarsRoverPhotoService{
         return retrofit.create(MarsRoverPhotoService::class.java)
+    }
+
+    //TODO 50 - Add dependencies to provide mars rover saved dao
+    @Provides
+    fun provideMarsRoverSavedPhotoDao(@ApplicationContext context:Context) : MarsRoverSavedPhotoDao {
+        return MarsRoverSavedDatabase.getInstance(context).marsRoverSavedPhotoDao()
     }
 }
