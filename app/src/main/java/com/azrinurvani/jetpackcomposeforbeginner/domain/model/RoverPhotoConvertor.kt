@@ -13,3 +13,17 @@ fun toDbModel(roverPhotoUiModel: RoverPhotoUiModel) : MarsRoverSavedLocalModel{
         cameraFullName = roverPhotoUiModel.cameraFullName
     )
 }
+
+//TODO 60 - Create model convertor or mapping from MarsRoverSavedLocalModel to RoverPhotoUiModel
+fun toUiModel(marsRoverSavedLocalModelList: List<MarsRoverSavedLocalModel>) =
+    marsRoverSavedLocalModelList.map { photo->
+        RoverPhotoUiModel(
+            id = photo.roverPhotoId,
+            roverName = photo.roverName,
+            imgSrc = photo.imgSrc,
+            sol = photo.sol,
+            earthDate = photo.earthDate,
+            cameraFullName = photo.cameraFullName,
+            isSaved = true
+        )
+    }

@@ -24,6 +24,7 @@ import com.azrinurvani.jetpackcomposeforbeginner.nav.Destinations
 import com.azrinurvani.jetpackcomposeforbeginner.nav.Screen
 import com.azrinurvani.jetpackcomposeforbeginner.ui.manifestlist.MarsRoverManifestViewModel
 import com.azrinurvani.jetpackcomposeforbeginner.ui.photolist.MarsRoverPhotoViewModel
+import com.azrinurvani.jetpackcomposeforbeginner.ui.savedlist.MarsRoverSavedViewModel
 import com.azrinurvani.jetpackcomposeforbeginner.ui.theme.JetpackComposeForBeginnerTheme
 import com.azrinurvani.jetpackcomposeforbeginner.ui.view.ManifestScreen
 import com.azrinurvani.jetpackcomposeforbeginner.ui.view.PhotoListSavedScreen
@@ -123,7 +124,8 @@ fun NavCompose(){
 
                 composable(Destinations.SAVED){ backStageEntry ->
                     PhotoListSavedScreen(
-                        modifier = modifier
+                        modifier = modifier,
+                        marsRoverSavedViewModel = hiltViewModel<MarsRoverSavedViewModel>()
                     )
                 }
             }

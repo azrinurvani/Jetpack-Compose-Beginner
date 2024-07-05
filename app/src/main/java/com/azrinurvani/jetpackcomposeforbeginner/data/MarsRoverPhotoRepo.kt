@@ -4,11 +4,13 @@ import com.azrinurvani.jetpackcomposeforbeginner.db.MarsRoverSavedPhotoDao
 import com.azrinurvani.jetpackcomposeforbeginner.domain.model.RoverPhotoUiModel
 import com.azrinurvani.jetpackcomposeforbeginner.domain.model.RoverPhotoUiState
 import com.azrinurvani.jetpackcomposeforbeginner.domain.model.toDbModel
+import com.azrinurvani.jetpackcomposeforbeginner.domain.model.toUiModel
 import com.azrinurvani.jetpackcomposeforbeginner.service.MarsRoverPhotoService
 import com.azrinurvani.jetpackcomposeforbeginner.service.model.RoverPhotoRemoteModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 //TODO 34 - Create MarsRoverPhotoRepo to call and emit function from service (Call API)
@@ -84,5 +86,11 @@ class MarsRoverPhotoRepo @Inject constructor(
     suspend fun removePhoto(roverPhotoUiModel: RoverPhotoUiModel){
         marsRoverSavedPhotoDao.delete(toDbModel(roverPhotoUiModel))
     }
+
+    //TODO 62 - Create function getAllSaved in MarsRoverPhoto and call getAllSaved from MarsRoverSavedPhotoDao
+    fun getAllSaved() : Flow<RoverPhotoUiState> =
+        marsRoverSavedPhotoDao.getAllSaved().map { localModel->
+            RoverPhotoUiState.Success(toUiModel(localModel))
+        }
 
 }
