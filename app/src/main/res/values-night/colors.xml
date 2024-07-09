@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--TODO 73 - Create new package with name values-night and copy paste colors.xml from values to values-night -->
+<resources>
+    <color name="icon_color">#FFFFFFFF</color>
+
+</resources>
