@@ -98,6 +98,9 @@ dependencies {
     implementation(libs.room.ktx)
     kapt(libs.androidx.room.compiler)
 
+    //Google Fonts
+    implementation(libs.androidx.ui.text.google.fonts)
+
 }
 kapt{
     correctErrorTypes = true

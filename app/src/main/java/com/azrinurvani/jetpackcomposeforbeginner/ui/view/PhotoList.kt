@@ -71,7 +71,8 @@ fun Photo(
                 ), contentDescription = "Save Icon" )
                 Text(
                     text = roverPhotoUiModel.roverName,
-                    modifier = Modifier.padding(16.dp)
+                    modifier = Modifier.padding(16.dp),
+                    style = MaterialTheme.typography.titleMedium
                 )
             }
             AsyncImage(
@@ -82,9 +83,19 @@ fun Photo(
                     .fillMaxWidth()
 
             )
-            Text(text = stringResource(id = R.string.sol,roverPhotoUiModel.sol))
-            Text(text = stringResource(id = R.string.earth_date,roverPhotoUiModel.earthDate))
-            Text(text = roverPhotoUiModel.cameraFullName)
+            //TODO 80 - Implement MaterialTheme.typography to widget UI
+            Text(
+                text = stringResource(id = R.string.sol,roverPhotoUiModel.sol),
+                style = MaterialTheme.typography.bodySmall
+            )
+            Text(
+                text = stringResource(id = R.string.earth_date,roverPhotoUiModel.earthDate),
+                style = MaterialTheme.typography.bodySmall
+            )
+            Text(
+                text = roverPhotoUiModel.cameraFullName,
+                style = MaterialTheme.typography.bodySmall
+            )
         }
     }
 }

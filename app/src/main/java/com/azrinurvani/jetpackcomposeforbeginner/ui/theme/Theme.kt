@@ -55,7 +55,9 @@ fun JetpackComposeForBeginnerTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+        //TODO 79 - Replace typography attribute from Typography to MarsRoverTypography
+//        typography = Typography,
+        typography = MarsRoverTypography,
         content = content
     )
 }
