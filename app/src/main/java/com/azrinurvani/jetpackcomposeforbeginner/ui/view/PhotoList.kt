@@ -1,5 +1,12 @@
+//@file:OptIn(ExperimentalAnimationApi::class)
+
 package com.azrinurvani.jetpackcomposeforbeginner.ui.view
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.scaleOut
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -51,24 +58,40 @@ fun Photo(
     //TODO 55 - Add onClick to create action after card of photo is clicked
     onClick : (roverPhotoUiModel : RoverPhotoUiModel) -> Unit
 ){
+    //TODO 81 - Create val duration for duration of animate icon save when clicked
+    val duration = 500
     Card(
         //TODO 56 - Add modifier.clickable to trigger onClick listener
-        modifier = Modifier.padding(16.dp).clickable {
-            onClick(roverPhotoUiModel)
-        }
+        modifier = Modifier
+            .padding(16.dp)
+            .clickable {
+                onClick(roverPhotoUiModel)
+            }
     ) {
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
             //TODO 57 - Add row widget for icon save
             Row(modifier = Modifier.fillMaxWidth()) {
-                Image(painter = painterResource(
-                    id = if (roverPhotoUiModel.isSaved) {
-                        R.drawable.ic_save
-                    } else {
-                        R.drawable.ic_save_outline
-                    }
-                ), contentDescription = "Save Icon" )
+                //TODO 82 - Move Image from Save Icon to AnimateContent with targetState using roverPhotoUiModel.isSaved,
+                AnimatedContent(targetState = roverPhotoUiModel.isSaved,
+                    transitionSpec = {
+                        scaleIn(
+                            animationSpec = tween(durationMillis = duration, delayMillis = duration)
+                        ) togetherWith scaleOut(
+                            animationSpec = tween(durationMillis = duration, delayMillis = duration)
+                        )
+                    }, label = ""
+                ) { targetState ->
+                    Image(painter = painterResource(
+                        //TODO 83 - Replace condition icon click from roverPhotoUiModel.isSaved using lambda parameter targetState
+                        id = if (targetState) {
+                            R.drawable.ic_save
+                        } else {
+                            R.drawable.ic_save_outline
+                        }
+                    ), contentDescription = "Save Icon" )
+                }
                 Text(
                     text = roverPhotoUiModel.roverName,
                     modifier = Modifier.padding(16.dp),
