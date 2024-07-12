@@ -13,11 +13,14 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Qualifier
 
 //TODO 5 - Create AppModule
 @Module
@@ -70,4 +73,15 @@ object AppModule {
     fun provideMarsRoverSavedPhotoDao(@ApplicationContext context:Context) : MarsRoverSavedPhotoDao {
         return MarsRoverSavedDatabase.getInstance(context).marsRoverSavedPhotoDao()
     }
+
+    //TODO 88 - Provide IoDispatcher using annotation class IoDispatcher
+    @IoDispatcher
+    @Provides
+    fun provideIoDispatcher() : CoroutineDispatcher = Dispatchers.IO
+
 }
+
+//TODO 88 - Create annotation class for IoDispatcher
+@Retention(AnnotationRetention.BINARY)
+@Qualifier
+annotation class IoDispatcher

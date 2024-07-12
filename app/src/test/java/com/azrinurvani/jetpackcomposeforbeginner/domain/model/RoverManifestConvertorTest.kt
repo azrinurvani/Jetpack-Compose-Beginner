@@ -1,8 +1,5 @@
-package com.azrinurvani.jetpackcomposeforbeginner
+package com.azrinurvani.jetpackcomposeforbeginner.domain.model
 
-import com.azrinurvani.jetpackcomposeforbeginner.domain.model.RoverManifestUiModel
-import com.azrinurvani.jetpackcomposeforbeginner.domain.model.RoverManifestUiState
-import com.azrinurvani.jetpackcomposeforbeginner.domain.model.toUiModel
 import com.azrinurvani.jetpackcomposeforbeginner.service.model.ManifestPhotoRemoteModel
 import com.azrinurvani.jetpackcomposeforbeginner.service.model.PhotoManifestRemoteModel
 import com.azrinurvani.jetpackcomposeforbeginner.service.model.RoverManifestRemoteModel
