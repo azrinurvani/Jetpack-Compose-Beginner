@@ -1,10 +1,9 @@
-package com.azrinurvani.jetpackcomposeforbeginner.uimanifestlist
+package com.azrinurvani.jetpackcomposeforbeginner.ui.manifestlist
 
 import com.azrinurvani.jetpackcomposeforbeginner.MainCoroutineRule
 import com.azrinurvani.jetpackcomposeforbeginner.data.MarsRoverManifestRepo
 import com.azrinurvani.jetpackcomposeforbeginner.domain.model.RoverManifestUiModel
 import com.azrinurvani.jetpackcomposeforbeginner.domain.model.RoverManifestUiState
-import com.azrinurvani.jetpackcomposeforbeginner.ui.manifestlist.MarsRoverManifestViewModel
 import io.mockk.coEvery
 import io.mockk.mockkClass
 import kotlinx.coroutines.flow.first
