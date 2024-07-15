@@ -31,7 +31,7 @@ class MarsPhotoRepoTest {
 
     //TODO 106 - Create variable to call MainCoroutineRule
     @get:Rule
-    private val coroutineRule = MainCoroutineRule()
+    val coroutineRule = MainCoroutineRule()
 
     //TODO 107 - Create function for testing when service and dao return valid data
     @Test
